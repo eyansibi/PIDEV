@@ -11,7 +11,10 @@ class Medecin
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $med = null;
+
+    #[ORM\Column]
+    private ?int $cin = null;
 
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
@@ -19,9 +22,30 @@ class Medecin
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    public function getId(): ?int
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
+
+    #[ORM\Column]
+    private ?int $telephone = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $specialite = null;
+
+    public function getMed(): ?int
     {
-        return $this->id;
+        return $this->med;
+    }
+
+    public function getCin(): ?int
+    {
+        return $this->cin;
+    }
+
+    public function setCin(int $cin): static
+    {
+        $this->cin = $cin;
+
+        return $this;
     }
 
     public function getNom(): ?string
@@ -44,6 +68,42 @@ class Medecin
     public function setPrenom(string $prenom): static
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?int
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(int $telephone): static
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getSpecialite(): ?string
+    {
+        return $this->specialite;
+    }
+
+    public function setSpecialite(string $specialite): static
+    {
+        $this->specialite = $specialite;
 
         return $this;
     }

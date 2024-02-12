@@ -4,6 +4,12 @@
     --light: #EFF5FF;
     --dark: #1B2C51;
 }
+.btn-container {
+    display: flex;
+    justify-content: center; /* Pour centrer horizontalement */
+    align-items: center; /* Pour centrer verticalement */
+    height: 100vh; /* Réglage de la hauteur du conteneur (100% de la hauteur de la fenêtre) */
+}
 
 .fw-medium {
     font-weight: 500 !important;

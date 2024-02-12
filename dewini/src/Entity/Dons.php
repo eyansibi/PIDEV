@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\RendezvousRepository;
+use App\Repository\DonsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: RendezvousRepository::class)]
-class Rendezvous
+#[ORM\Entity(repositoryClass: DonsRepository::class)]
+class Dons
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,6 +19,12 @@ class Rendezvous
 
     #[ORM\Column]
     private ?int $etat = null;
+
+    #[ORM\Column]
+    private ?int $eligibilite = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dons')]
+    private ?Bonus $bonus = null;
 
     public function getId(): ?int
     {
@@ -45,6 +51,30 @@ class Rendezvous
     public function setEtat(int $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getEligibilite(): ?int
+    {
+        return $this->eligibilite;
+    }
+
+    public function setEligibilite(int $eligibilite): static
+    {
+        $this->eligibilite = $eligibilite;
+
+        return $this;
+    }
+
+    public function getBonus(): ?Bonus
+    {
+        return $this->bonus;
+    }
+
+    public function setBonus(?Bonus $bonus): static
+    {
+        $this->bonus = $bonus;
 
         return $this;
     }
